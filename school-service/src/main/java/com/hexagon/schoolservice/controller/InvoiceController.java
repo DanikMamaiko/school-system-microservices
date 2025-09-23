@@ -1,49 +1,46 @@
 package com.hexagon.schoolservice.controller;
 
-import com.hexagon.schoolservice.entity.Invoice;
-import com.hexagon.schoolservice.service.interf.InvoiceService;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hexagon.schoolservice.dal.entity.Invoice;
+import com.hexagon.schoolservice.dal.service.InvoiceService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/invoice")
+@RequiredArgsConstructor
 public class InvoiceController {
 
-    @Autowired
-    InvoiceService invoiceService;
+    private final InvoiceService invoiceService;
 
-    @PostMapping("/saveInv")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
     public Invoice saveInvoice(@RequestBody Invoice inv) {
         return invoiceService.saveInvoice(inv);
     }
 
-    @GetMapping("/allInv")
+    @GetMapping
     public ResponseEntity<List<Invoice>> getAllInvoices(){
         return ResponseEntity.ok(invoiceService.getAllInvoices());
     }
 
-    @GetMapping("/getOne/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{id}")
     public Invoice getOneInvoice(@PathVariable Long id) {
         return invoiceService.getOneInvoice(id);
     }
 
-    @PutMapping("/modify/{id}")
+    @PutMapping("/{id}")
     public Invoice updateInvoice(@RequestBody Invoice inv, @PathVariable Long id) {
         return invoiceService.updateInvoice(inv, id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteInvoice(@PathVariable Long id) {
+    public ResponseEntity<String> deleteInvoice(@PathVariable Long id) {
         invoiceService.deleteInvoice(id);
-        return "Employee with id: "+id+ " Deleted !";
+        return ResponseEntity.ok("Invoice with id: " + id + " was deleted!");
     }
 }
