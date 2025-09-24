@@ -1,4 +1,4 @@
-package com.hexagon.studentservice.dao.dto;
+package com.hexagon.studentservice.dao.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

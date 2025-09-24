@@ -16,10 +16,10 @@ public class InvoiceController {
 
     private final InvoiceService invoiceService;
 
-    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Invoice saveInvoice(@RequestBody Invoice inv) {
-        return invoiceService.saveInvoice(inv);
+    public ResponseEntity<Invoice> saveInvoice(@RequestBody Invoice inv) {
+        Invoice saved = invoiceService.saveInvoice(inv);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -27,15 +27,16 @@ public class InvoiceController {
         return ResponseEntity.ok(invoiceService.getAllInvoices());
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public Invoice getOneInvoice(@PathVariable Long id) {
-        return invoiceService.getOneInvoice(id);
+    public ResponseEntity<Invoice> getOneInvoice(@PathVariable Long id) {
+        Invoice invoice = invoiceService.getOneInvoice(id);
+        return ResponseEntity.ok(invoice);
     }
 
     @PutMapping("/{id}")
-    public Invoice updateInvoice(@RequestBody Invoice inv, @PathVariable Long id) {
-        return invoiceService.updateInvoice(inv, id);
+    public ResponseEntity<Invoice> updateInvoice(@RequestBody Invoice inv, @PathVariable Long id) {
+        Invoice updated = invoiceService.updateInvoice(inv, id);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/delete/{id}")
