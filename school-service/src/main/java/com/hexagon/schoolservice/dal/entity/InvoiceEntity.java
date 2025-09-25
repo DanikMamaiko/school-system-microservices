@@ -6,7 +6,6 @@ import java.io.Serial;
 import java.io.Serializable;
 
 import lombok.*;
-import org.hibernate.annotations.UuidGenerator;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ import org.hibernate.annotations.UuidGenerator;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Invoice implements Serializable {
+public class InvoiceEntity implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

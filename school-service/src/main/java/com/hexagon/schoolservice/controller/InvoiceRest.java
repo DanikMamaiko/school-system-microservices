@@ -1,6 +1,6 @@
 package com.hexagon.schoolservice.controller;
 
-import com.hexagon.schoolservice.dal.entity.Invoice;
+import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
 import com.hexagon.schoolservice.dal.service.InvoiceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,25 +17,25 @@ public class InvoiceRest {
     private final InvoiceService invoiceService;
 
     @PostMapping
-    public ResponseEntity<Invoice> create(@RequestBody Invoice inv) {
-        Invoice saved = invoiceService.create(inv);
+    public ResponseEntity<InvoiceEntity> create(@RequestBody InvoiceEntity inv) {
+        InvoiceEntity saved = invoiceService.create(inv);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<Invoice>> read(){
+    public ResponseEntity<List<InvoiceEntity>> read(){
         return ResponseEntity.ok(invoiceService.read());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Invoice> findById(@PathVariable Long id) {
-        Invoice invoice = invoiceService.findById(id);
-        return ResponseEntity.ok(invoice);
+    public ResponseEntity<InvoiceEntity> findById(@PathVariable Long id) {
+        InvoiceEntity invoiceEntity = invoiceService.findById(id);
+        return ResponseEntity.ok(invoiceEntity);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Invoice> update(@RequestBody Invoice inv, @PathVariable Long id) {
-        Invoice updated = invoiceService.update(inv, id);
+    public ResponseEntity<InvoiceEntity> update(@RequestBody InvoiceEntity inv, @PathVariable Long id) {
+        InvoiceEntity updated = invoiceService.update(inv, id);
         return ResponseEntity.ok(updated);
     }
 

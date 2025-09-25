@@ -16,7 +16,7 @@ import java.io.Serial;
 @ToString
 @EqualsAndHashCode
 @Entity
-public class Canteen {
+public class CanteenEntity {
 
     @Serial
     private static final long serialVersionUID = 1L;

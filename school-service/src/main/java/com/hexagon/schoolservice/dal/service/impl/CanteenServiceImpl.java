@@ -1,6 +1,6 @@
 package com.hexagon.schoolservice.dal.service.impl;
 
-import com.hexagon.schoolservice.dal.entity.Canteen;
+import com.hexagon.schoolservice.dal.entity.CanteenEntity;
 import com.hexagon.schoolservice.dal.repository.CanteenRepository;
 import com.hexagon.schoolservice.dal.service.CanteenService;
 import lombok.RequiredArgsConstructor;
@@ -16,14 +16,14 @@ public class CanteenServiceImpl implements CanteenService {
     @Override
     @Transactional
     public void incrementRevenue(Integer optionalRevenue) {
-        Canteen canteen = canteenRepository.findById(1L).get();
+        CanteenEntity canteenEntity = canteenRepository.findById(1L).get();
 
-        int canteenOrders = canteen.getPurchaseCount() + 1;
-        int canteenRevenue = canteen.getRevenue() + optionalRevenue;
+        int canteenOrders = canteenEntity.getPurchaseCount() + 1;
+        int canteenRevenue = canteenEntity.getRevenue() + optionalRevenue;
 
-        canteen.setRevenue(canteenRevenue);
-        canteen.setPurchaseCount(canteenOrders);
+        canteenEntity.setRevenue(canteenRevenue);
+        canteenEntity.setPurchaseCount(canteenOrders);
 
-        canteenRepository.save(canteen);
+        canteenRepository.save(canteenEntity);
     }
 }

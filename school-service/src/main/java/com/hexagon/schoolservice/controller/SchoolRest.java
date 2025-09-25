@@ -1,6 +1,6 @@
 package com.hexagon.schoolservice.controller;
 
-import com.hexagon.schoolservice.dal.entity.School;
+import com.hexagon.schoolservice.dal.entity.SchoolEntity;
 import com.hexagon.schoolservice.dal.service.impl.SchoolServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class SchoolRest {
     private final SchoolServiceImpl schoolServiceImpl;
 
     @PostMapping
-    public School create(@RequestBody School school) {
+    public SchoolEntity create(@RequestBody SchoolEntity school) {
         return schoolServiceImpl.create(school);
     }
 
     @GetMapping
-    public List<School> read() {
+    public List<SchoolEntity> read() {
         return schoolServiceImpl.read();
     }
 
     @GetMapping("/{id}")
-    public School findById(@PathVariable int id) {
+    public SchoolEntity findById(@PathVariable int id) {
         return schoolServiceImpl.findById(id);
     }
 
     @PutMapping("/{id}")
-    public School update(@PathVariable int id, @RequestBody School school) {
+    public SchoolEntity update(@PathVariable int id, @RequestBody SchoolEntity school) {
         return schoolServiceImpl.update(id, school);
     }
 

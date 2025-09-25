@@ -1,6 +1,6 @@
 package com.hexagon.schoolservice.dal.service.impl;
 
-import com.hexagon.schoolservice.dal.entity.Invoice;
+import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
 import com.hexagon.schoolservice.dal.service.InvoiceService;
 import com.hexagon.schoolservice.exception.InvoiceNotFoundException;
 import com.hexagon.schoolservice.dal.repository.InvoiceRepository;
@@ -21,34 +21,34 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     @Transactional
-    public Invoice create(Invoice inv) {
+    public InvoiceEntity create(InvoiceEntity inv) {
         return invoiceRepo.save(inv);
     }
 
     @Override
     @CachePut(value = "Invoice", key = "#id")
     @Transactional
-    public Invoice update(Invoice inv, Long id) {
-        Invoice invoice = invoiceRepo.findById(id)
+    public InvoiceEntity update(InvoiceEntity inv, Long id) {
+        InvoiceEntity invoiceEntity = invoiceRepo.findById(id)
                 .orElseThrow(() -> new InvoiceNotFoundException("Invoice Not Found"));
-        invoice.setInvAmount(inv.getInvAmount());
-        invoice.setInvName(inv.getInvName());
-        return invoiceRepo.save(invoice);
+        invoiceEntity.setInvAmount(inv.getInvAmount());
+        invoiceEntity.setInvName(inv.getInvName());
+        return invoiceRepo.save(invoiceEntity);
     }
 
     @Override
     @CacheEvict(value="Invoice", key="#id")
     @Transactional
     public void delete(Long id) {
-        Invoice invoice = invoiceRepo.findById(id)
+        InvoiceEntity invoiceEntity = invoiceRepo.findById(id)
                 .orElseThrow(() -> new InvoiceNotFoundException("Invoice Not Found"));
-        invoiceRepo.delete(invoice);
+        invoiceRepo.delete(invoiceEntity);
     }
 
     @Override
     @Cacheable(value="Invoice", key="#id")
     @Transactional(readOnly = true)
-    public Invoice findById(Long id) {
+    public InvoiceEntity findById(Long id) {
         return invoiceRepo.findById(id)
                 .orElseThrow(() -> new InvoiceNotFoundException("Invoice Not Found"));
     }
@@ -56,7 +56,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     @Cacheable(value="Invoice")
     @Transactional(readOnly = true)
-    public List<Invoice> read() {
+    public List<InvoiceEntity> read() {
         return invoiceRepo.findAll();
     }
 }

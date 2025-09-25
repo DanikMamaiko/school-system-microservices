@@ -1,13 +1,13 @@
 package com.hexagon.schoolservice.dal.service;
 
-import com.hexagon.schoolservice.dal.entity.School;
+import com.hexagon.schoolservice.dal.entity.SchoolEntity;
 
 import java.util.List;
 
 public interface SchoolService {
-    School create(School school);
-    List<School> read();
-    School findById(int id);
-    School update(int id, School updatedSchool);
+    SchoolEntity create(SchoolEntity school);
+    List<SchoolEntity> read();
+    SchoolEntity findById(int id);
+    SchoolEntity update(int id, SchoolEntity updatedSchool);
     void delete(int id);
 }

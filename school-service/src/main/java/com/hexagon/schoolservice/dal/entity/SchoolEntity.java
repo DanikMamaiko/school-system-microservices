@@ -13,7 +13,7 @@ import java.io.Serial;
 @EqualsAndHashCode
 @Entity
 @Table(name = "school")
-public class School {
+public class SchoolEntity {
 
     @Serial
     private static final long serialVersionUID = 1L;

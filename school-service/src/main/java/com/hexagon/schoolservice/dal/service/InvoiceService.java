@@ -1,13 +1,13 @@
 package com.hexagon.schoolservice.dal.service;
 
-import com.hexagon.schoolservice.dal.entity.Invoice;
+import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
 import java.util.List;
 
 public interface InvoiceService {
 
-    Invoice create(Invoice inv);
-    Invoice update(Invoice inv, Long invId);
+    InvoiceEntity create(InvoiceEntity inv);
+    InvoiceEntity update(InvoiceEntity inv, Long invId);
     void delete(Long invId);
-    Invoice findById(Long invId);
-    List<Invoice> read();
+    InvoiceEntity findById(Long invId);
+    List<InvoiceEntity> read();
 }
