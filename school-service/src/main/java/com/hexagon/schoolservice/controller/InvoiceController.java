@@ -17,31 +17,31 @@ public class InvoiceController {
     private final InvoiceService invoiceService;
 
     @PostMapping
-    public ResponseEntity<Invoice> saveInvoice(@RequestBody Invoice inv) {
-        Invoice saved = invoiceService.saveInvoice(inv);
+    public ResponseEntity<Invoice> create(@RequestBody Invoice inv) {
+        Invoice saved = invoiceService.create(inv);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<Invoice>> getAllInvoices(){
-        return ResponseEntity.ok(invoiceService.getAllInvoices());
+    public ResponseEntity<List<Invoice>> read(){
+        return ResponseEntity.ok(invoiceService.read());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Invoice> getOneInvoice(@PathVariable Long id) {
-        Invoice invoice = invoiceService.getOneInvoice(id);
+    public ResponseEntity<Invoice> findById(@PathVariable Long id) {
+        Invoice invoice = invoiceService.findById(id);
         return ResponseEntity.ok(invoice);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Invoice> updateInvoice(@RequestBody Invoice inv, @PathVariable Long id) {
-        Invoice updated = invoiceService.updateInvoice(inv, id);
+    public ResponseEntity<Invoice> update(@RequestBody Invoice inv, @PathVariable Long id) {
+        Invoice updated = invoiceService.update(inv, id);
         return ResponseEntity.ok(updated);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteInvoice(@PathVariable Long id) {
-        invoiceService.deleteInvoice(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        invoiceService.delete(id);
         return ResponseEntity.ok("Invoice with id: " + id + " was deleted!");
     }
 }

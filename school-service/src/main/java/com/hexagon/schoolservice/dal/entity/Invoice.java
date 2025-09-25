@@ -1,24 +1,34 @@
 package com.hexagon.schoolservice.dal.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
 
-@Data
+import java.io.Serial;
+import java.io.Serializable;
+
+import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Entity
 public class Invoice implements Serializable {
 
-    private static final long serialVersionUID = -4439114469417994311L;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long invId;
     private String invName;
     private Double invAmount;
+
+    // TODO: Как мы можем сохранять id
+    // @Id
+    // @Column(name = "id")
+    // @UuidGenerator
+    // private String id;
 }

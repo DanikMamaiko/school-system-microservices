@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface InvoiceService {
 
-    public Invoice saveInvoice(Invoice inv);
-    public Invoice updateInvoice(Invoice inv, Long invId);
-    public void deleteInvoice(Long invId);
-    public Invoice getOneInvoice(Long invId);
-    public List<Invoice> getAllInvoices();
+    Invoice create(Invoice inv);
+    Invoice update(Invoice inv, Long invId);
+    void delete(Long invId);
+    Invoice findById(Long invId);
+    List<Invoice> read();
 }

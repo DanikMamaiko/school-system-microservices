@@ -1,7 +1,7 @@
 package com.hexagon.schoolservice.controller;
 
 import com.hexagon.schoolservice.dal.entity.School;
-import com.hexagon.schoolservice.dal.service.SchoolService;
+import com.hexagon.schoolservice.dal.service.impl.SchoolServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,35 +13,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchoolController {
 
-    private final SchoolService schoolService;
+    private final SchoolServiceImpl schoolServiceImpl;
 
-    // CREATE
     @PostMapping
-    public School createSchool(@RequestBody School school) {
-        return schoolService.create(school);
+    public School create(@RequestBody School school) {
+        return schoolServiceImpl.create(school);
     }
 
-    // READ ALL
     @GetMapping
-    public List<School> getAllSchools() {
-        return schoolService.read();
+    public List<School> read() {
+        return schoolServiceImpl.read();
     }
 
-    // READ BY ID
     @GetMapping("/{id}")
-    public School getSchoolById(@PathVariable int id) {
-        return schoolService.findById(id);
+    public School findById(@PathVariable int id) {
+        return schoolServiceImpl.findById(id);
     }
 
-    // UPDATE
     @PutMapping("/{id}")
-    public School updateSchool(@PathVariable int id, @RequestBody School school) {
-        return schoolService.update(id, school);
+    public School update(@PathVariable int id, @RequestBody School school) {
+        return schoolServiceImpl.update(id, school);
     }
 
-    // DELETE
     @DeleteMapping("/{id}")
-    public void deleteSchool(@PathVariable int id) {
-        schoolService.delete(id);
+    public void delete(@PathVariable int id) {
+        schoolServiceImpl.delete(id);
     }
 }
