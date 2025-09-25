@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: LIBRARY-SERVICE
+  data:
+    mongodb:
+      uri: mongodb://mongo_db:27017/librarydb
 
 eureka:
   client:

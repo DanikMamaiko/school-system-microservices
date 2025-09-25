@@ -15,6 +15,10 @@ spring:
           uri: lb://SCHOOL-SERVICE
           predicates:
             - Path=/school/**, /invoice/**
+        - id: LIBRARY-SERVICE
+          uri: lb://LIBRARY-SERVICE
+          predicates:
+            - Path=/api/v1/books/**
 
 eureka:
   client:
