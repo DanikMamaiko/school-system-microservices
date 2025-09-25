@@ -1,4 +1,4 @@
-package com.hexagon.schoolservice.dal.service.impl;
+package com.hexagon.paymentservice.dal.service.impl;
 
 import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
 import com.hexagon.schoolservice.dal.service.InvoiceService;

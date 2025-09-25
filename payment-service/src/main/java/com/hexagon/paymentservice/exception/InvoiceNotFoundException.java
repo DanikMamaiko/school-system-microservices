@@ -1,4 +1,4 @@
-package com.hexagon.schoolservice.exception;
+package com.hexagon.paymentservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

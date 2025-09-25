@@ -30,22 +30,12 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: librarydb
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
-    networks:
-      - my_bridge_network
-
-  mongo_db:
-    image: mongo:latest
-    container_name: mongo_db
-    environment:
-      MONGO_INITDB_DATABASE: librarydb
-    ports:
-      - "27018:27017"
-    volumes:
-      - library_mongodb_data:/data/db
     networks:
       - my_bridge_network
 

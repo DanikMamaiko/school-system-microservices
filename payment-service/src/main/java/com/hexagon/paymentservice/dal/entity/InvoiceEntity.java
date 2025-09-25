@@ -1,4 +1,4 @@
-package com.hexagon.schoolservice.dal.entity;
+package com.hexagon.paymentservice.dal.entity;
 
 import jakarta.persistence.*;
 
