@@ -2,7 +2,7 @@ package com.hexagon.schoolservice.dal.service.impl;
 
 import com.hexagon.schoolservice.dal.entity.Invoice;
 import com.hexagon.schoolservice.dal.service.InvoiceService;
-import com.hexagon.schoolservice.dal.util.InvoiceNotFoundException;
+import com.hexagon.schoolservice.exception.InvoiceNotFoundException;
 import com.hexagon.schoolservice.dal.repository.InvoiceRepository;
 
 import java.util.List;

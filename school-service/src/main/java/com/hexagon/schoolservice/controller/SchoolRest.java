@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/school")
 @RequiredArgsConstructor
-public class SchoolController {
+public class SchoolRest {
 
     private final SchoolServiceImpl schoolServiceImpl;
 
