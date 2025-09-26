@@ -1,11 +1,12 @@
 package com.hexagon.paymentservice.dal.service.impl;
 
-import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
-import com.hexagon.schoolservice.dal.service.InvoiceService;
-import com.hexagon.schoolservice.exception.InvoiceNotFoundException;
-import com.hexagon.schoolservice.dal.repository.InvoiceRepository;
 
 import java.util.List;
+
+import com.hexagon.paymentservice.dal.entity.InvoiceEntity;
+import com.hexagon.paymentservice.dal.repository.InvoiceRepository;
+import com.hexagon.paymentservice.dal.service.InvoiceService;
+import com.hexagon.paymentservice.exception.InvoiceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

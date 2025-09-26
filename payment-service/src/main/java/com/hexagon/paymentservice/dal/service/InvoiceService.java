@@ -1,6 +1,7 @@
 package com.hexagon.paymentservice.dal.service;
 
-import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
+import com.hexagon.paymentservice.dal.entity.InvoiceEntity;
+
 import java.util.List;
 
 public interface InvoiceService {

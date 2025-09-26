@@ -1,7 +1,7 @@
 package com.hexagon.paymentservice.controller;
 
-import com.hexagon.schoolservice.dal.entity.InvoiceEntity;
-import com.hexagon.schoolservice.dal.service.InvoiceService;
+import com.hexagon.paymentservice.dal.entity.InvoiceEntity;
+import com.hexagon.paymentservice.dal.service.InvoiceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
