@@ -1,0 +1,14 @@
+type Grade {
+    id: ID!
+    studentName: String!
+    subject: String!
+    score: Int!
+}
+
+type Query {
+    gradeById(id: ID!): Grade
+}
+
+type Mutation {
+    saveGrade(studentName: String!, subject: String!, score: Int!): Grade
+}

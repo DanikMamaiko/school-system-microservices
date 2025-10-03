@@ -1,0 +1,11 @@
+curl --location 'http://localhost:8085/graphql' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query": "query { gradeById(id: 1) { id studentName subject score } }"
+}'
+
+curl --location 'http://localhost:8085/graphql' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query": "mutation { saveGrade(studentName: \"Ivan Ivanov\", subject: \"Math\", score: 95) { id studentName subject score } }"
+}'

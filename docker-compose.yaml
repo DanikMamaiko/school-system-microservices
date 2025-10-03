@@ -65,7 +65,7 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-С      - my_bridge_network
+      - my_bridge_network
 
 #  zookeeper:
 #    image: zookeeper:3.7.0
